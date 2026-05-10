@@ -18,7 +18,7 @@
   <div class="card-body">
     <p class="card-text">
         <b><%= listing.title %></b><br>
-        
+        <%= listing.description %><br>
        &#8377;<%= listing.price.toLocaleString("en-IN") %>/night <br>
       
     </p>
@@ -31,7 +31,7 @@
           <form method="GET" action="/home">
         <button class="btn btn-primary Back">Back to all products</button>
         </form><br>
-         <form method="POST" action="/listing/<%=listing._id%>/delete?_method=DELETE">
+         <form method="POST" action="/<%=listing._id%>?_method=DELETE">
             <button class="btn btn-dark deleteBtn">Delete</button>
         </form>
         

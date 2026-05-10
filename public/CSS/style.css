@@ -1,37 +1,176 @@
+:root {
+  --page-bg: rgba(7, 18, 34, 0.65);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text-color: #111;
+  --muted-color: #555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #fff;
+  background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1700&q=80') center/cover no-repeat fixed;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.page-shell {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  letter-spacing: -0.05em;
+  color: #fff;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+.hero-subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+.btn-success {
+  box-shadow: 0 14px 30px rgba(34, 139, 34, 0.2);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-items: center;
+}
+
 .my-card {
-  width: 18rem;          /* fixed width */
-  height: 350px;         /* fixed height for all cards */
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  width: 100%;
+  max-width: 360px;
+  background: var(--card-bg);
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  box-shadow: 0 24px 45px rgba(15, 26, 45, 0.08);
+}
+
+.card-img-frame {
+  position: relative;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
 }
 
-/* Make all images same height */
 .fixed-img {
-  height: 180px;
-  object-fit: cover;      /* keeps image nice */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge-price,
+.badge-tag {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.badge-price {
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+}
+
+.badge-tag {
+  background: rgba(0, 123, 255, 0.95);
+  color: #fff;
+}
+
+.card-body {
+  padding: 1.4rem;
+  color: var(--text-color);
+}
+
+.card-title {
+  margin: 0 0 0.65rem;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.product-meta {
+  margin: 0 0 1rem;
+  color: var(--muted-color);
+  line-height: 1.6;
+  min-height: 3.2rem;
+}
+
+.card-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.label-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #f8f9fa;
+  color: #333;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+.btn-block {
   width: 100%;
 }
 
-/* optional line divider */
-.divider {
-  margin: 0;
-  border-top: 1px solid #ccc;
+@media (max-width: 576px) {
+  .page-shell {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
 }
 
-.card{
-    width: 25rem !important;
-    border: none !important;
-    border-radius: 2rem !important;
-   
-
-}
-
-.card-img-top{
-    height: 20rem ;
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover;
-
-}
 
